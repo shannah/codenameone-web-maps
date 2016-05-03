@@ -1,0 +1,43 @@
+<project name="CN1WebMaps" default="dist" basedir=".">
+  <description>
+    Codename One Web Maps Library
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <get src="https://github.com/shannah/binaries/raw/master/cn1-common/CLDC11.jar" dest="./CN1WebMaps/lib/CLDC11.jar" skipexisting="true"/>
+    <copy file="./CN1WebMaps/lib/CLDC11.jar" tofile="./demo/lib/CLDC11.jar"/>
+    
+    <get skipexisting="true" src="https://github.com/shannah/binaries/raw/master/cn1-common/CodeNameOneBuildClient.jar" dest="./demo/CodeNameOneBuildClient.jar"/>
+    <get skipexisting="true" src="https://github.com/shannah/binaries/raw/master/cn1-common/JavaSE.jar" dest="./demo/JavaSE.jar"/>
+    <get skipexisting="true" src="https://github.com/shannah/binaries/raw/master/cn1-common/CodenameOne.jar" dest="./CN1WebMaps/lib/CodenameOne.jar"/>
+    <get skipexisting="true" src="https://github.com/shannah/binaries/raw/master/cn1-common/CodenameOne_SRC.zip" dest="./CN1WebMaps/lib/CodenameOne_SRC.zip"/>
+    <copy file="./CN1WebMaps/lib/CodenameOne_SRC.zip" tofile="./demo/lib/CodenameOne_SRC.zip"/>
+    <get skipexisting="true" src="https://github.com/shannah/binaries/raw/master/cn1-common/Stubber.jar" dest="./CN1WebMaps/Stubber.jar"/>
+
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <ant dir="CN1WebMaps" target="jar" inheritall="false"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution">
+    <copy file="CN1WebMaps/dist/CN1WebMaps.cn1lib" tofile="bin/CN1WebMaps.cn1lib"/>
+  </target>
+
+  <target name="clean"
+        description="clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <ant dir="demo" target="clean" inheritall="false"/>
+    <ant dir="CN1WebMaps" target="clean" inheritall="false"/>
+
+  </target>
+</project>
