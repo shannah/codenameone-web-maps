@@ -71,8 +71,8 @@ hi.show();
 You can try out the demo app by building it from source.
 
 ~~~~
-$ git clone ...
-$ cd ...
+$ git clone https://github.com/shannah/codenameone-web-maps.git
+$ cd codenameone-web-maps
 $ ant
 ~~~~
 
@@ -81,12 +81,12 @@ Open the demo project in NetBeans
 ## Building from Source
 
 ~~~~
-$ git clone ...
-$ cd ...
+$ git clone https://github.com/shannah/codenameone-web-maps.git
+$ cd codenameone-web-maps
 $ ant
 ~~~~
 
-You'll find the library in CN1WebMaps/dist/CN1WebMaps.cn1lib
+You'll find the library in bin/CN1WebMaps.cn1lib
 
 
 ## License
