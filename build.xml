@@ -10,6 +10,7 @@
   <target name="init">
     <!-- Create the time stamp -->
     <mkdir dir="demo/lib"/>
+    <mkdir dir="CN1WebMaps/lib"/>
     <tstamp/>
     <get src="https://github.com/shannah/binaries/raw/master/cn1-common/CLDC11.jar" dest="./CN1WebMaps/lib/CLDC11.jar" skipexisting="true"/>
     <copy file="./CN1WebMaps/lib/CLDC11.jar" tofile="./demo/lib/CLDC11.jar"/>
